@@ -1,2 +1,2 @@
 #!/bin/bash
-chumdo -R a+X
+chmod -R a+X /0x01-shell_permissions/
