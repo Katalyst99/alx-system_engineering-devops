@@ -1,0 +1,1 @@
+Script that lists all files even hidden ones, in the current directory and the parent of the working directory and boot directory in this order, in long form.
