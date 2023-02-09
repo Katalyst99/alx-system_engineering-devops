@@ -1,2 +1,2 @@
 #!/bin/bash
-echo"Bash Shell Script" > /tmp/iamafile
+file /tmp/iamafile
