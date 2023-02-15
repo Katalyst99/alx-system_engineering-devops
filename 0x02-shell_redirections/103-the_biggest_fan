@@ -1,2 +1,2 @@
 #!/bin/bash
-head -n 11 | sort | uniq -c 
+tail -n +1 |sort -knr 1 | uniq -c | head -n 11
