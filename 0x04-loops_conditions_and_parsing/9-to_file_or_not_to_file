@@ -7,14 +7,14 @@ then
 	echo "$s file exists"
 	if [ -s $s ]
 	then
-		echo "school file is empty"
-	else
 		echo "school file is not empty"
+	else
+		echo "$s file is empty"
 	fi
 	if [ -f $s ]
 	then
 		echo "$s is a regular file"
 	fi
 else
-	echo "school file does not exist"
+	echo "$s file does not exist"
 fi
