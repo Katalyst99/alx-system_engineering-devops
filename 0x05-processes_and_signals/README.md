@@ -1,7 +1,7 @@
 # 0x05. Processes and Signals
 
 ## Description
-This project focuses on understanding processes and signals in Linux.Learn about Process IDs (PID), managing processes, and sending signals to control their behavior.
+This project focuses on understanding processes and signals, including learning about Process IDs (PID), managing processes, and sending signals to control their behavior.
 
 ## Learning Objectives
 By the end of this project, you should be able to explain the following concepts without external assistance:
