@@ -1,5 +1,6 @@
 ## 0x09. Web infrastructure design
-
+* The collection of hardware, software, network resources, and services required for the operation and management of a web-based application or website.
+* Importance of `Web infrastructure design`: Verifies the availability, performance, security, and scalability of web services.
 ## Learning Objectives
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 
