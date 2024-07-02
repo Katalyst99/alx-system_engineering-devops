@@ -5,13 +5,14 @@ sudo apt-get update
 sudo apt-get -y install nginx
 sudo service nginx start
 sudo ufw allow 'Nginx HTTP'
+
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 page_404="\
     error_page 404 /404.html;\n\
-    location /404.html {\n\
+    location = /404.html {\n\
         root /var/www/html;\n\
-	internal;
+	internal;\n\
     }\n\
 "
-sed -i "/listen \[::]:80 default_server;/a $page_404" /etc/nginx/sites-available/default
+sudo sed -i "/listen \[::]:80 default_server;/a $page_404" /etc/nginx/sites-available/default
 sudo service nginx restart
