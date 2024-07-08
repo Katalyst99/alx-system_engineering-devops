@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Bash script that configure Nginx so that its HTTP response contains a custom header (on web-01 and web-02)
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo service nginx start
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+re_direct="\
+    location /redirect_me {\n\
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\
+    }\n\
+"
+sudo sed -i "/listen \[::]:80 default_server;/a $re_direct" /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+page_404="\
+    error_page 404 /404.html;\n\
+    location = /404.html {\n\
+        root /var/www/html;\n\
+	internal;\n\
+    }\n\
+"
+sudo sed -i "/listen \[::]:80 default_server;/a $page_404" /etc/nginx/sites-available/default
+sudo sed -i"/listen \[::]:80 default_server;/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default
+sudo nginx -t
+sudo service nginx restart
