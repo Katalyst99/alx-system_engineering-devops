@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Bash script must accept 2 arguments and outputs the subdomain.
+
+func2 () {
+   domain="$1"
+   subdomain="$2"
+   if [ -n "$subdomain" ]
+   then
+	   dig "$subdomain.$domain" | awk '/ANSWER SECTION:/{getline; printf "The subdomain %s is a %s record and points to %s\n", $2, $4, $5}'
+   fi
+}
+
+if [ "$#" == 2 ]
+then
+	domain="$1"
+	subdomain="$2"
+	func2 "$domain" "$subdomain"
+
+elif [ "$#" -eq 1 ]
+then
+	domain="$1"
+	func2 "www" "$domain"
+	func2 "lb-01" "$domain"
+	func2 "web-01" "$domain"
+	func2 "web-02" "$domain"
+fi
