@@ -2,19 +2,19 @@
 # Bash script must accept 2 arguments and outputs the subdomain.
 
 func2 () {
-   domain="$1"
-   subdomain="$2"
+   domain="$2"
+   subdomain="$1"
    if [ -n "$subdomain" ]
    then
-	   dig "$subdomain.$domain" | awk '/ANSWER SECTION:/{getline; printf "The subdomain %s is a %s record and points to %s\n", $2, $4, $5}'
+	   dig "$subdomain.$domain" | awk '/ANSWER SECTION:/{getline; printf "The subdomain %s is a %s record and points to %s\n", $1, $4, $5}'
    fi
 }
 
-if [ "$#" == 2 ]
+if [ "$#" -eq 2 ]
 then
 	domain="$1"
 	subdomain="$2"
-	func2 "$domain" "$subdomain"
+	func2 "$subdomain" "$domain"
 
 elif [ "$#" -eq 1 ]
 then
