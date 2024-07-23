@@ -3,5 +3,5 @@
 
 passwd="$1"
 dt="$(date '+%d-%m-%Y)')"
-mysqldump -u root -p "$passwd" --all-databases > backup.sql
+mysqldump -u root -p"$passwd" --all-databases > backup.sql
 tar -czvf "$dt.tar.gz" backup.sql
