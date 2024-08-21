@@ -14,4 +14,8 @@ server {
     location /airbnb-onepage {
         proxy_pass http://0.0.0.0:5000/airbnb-onepage;
     }
+
+    location /hbnb_static {
+        alias /data/web_static/current/;
+    }
 }
